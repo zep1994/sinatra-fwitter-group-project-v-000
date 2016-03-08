@@ -8,3 +8,5 @@ tags:
 languages:
   - ruby
 project: true
+resources:
+  - 0
