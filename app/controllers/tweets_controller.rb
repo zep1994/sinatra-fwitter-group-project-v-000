@@ -46,6 +46,14 @@ class TweetsController < ApplicationController
       end
     end
 
+    post '/tweets/:id/edit' do
+      if !params[:content].empty?
+        tweet = Tweet.find(params[:id])
+        tweet.update(content: params[:content])
+      end
+      redirect "/tweets/#{params[:id]}/edit"
+    end
+
     post '/tweets/:id/delete' do
       if logged_in?
         if Tweet.find(params[:id]) && current_user == Tweet.find(params[:id]).user
@@ -57,4 +65,3 @@ class TweetsController < ApplicationController
         end
       end
     end
-    
