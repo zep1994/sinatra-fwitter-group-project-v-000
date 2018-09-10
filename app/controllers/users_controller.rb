@@ -8,4 +8,11 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/users/:slug/edit' do
+    erb :"/users/edit"
+  end
+
+  post '/users/:slug/edit' do
+    redirect "/users#{params[:slug]}"
+  end
 end
