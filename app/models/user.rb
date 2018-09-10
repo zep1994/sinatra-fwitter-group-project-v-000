@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :tweets
 
   validates :username, length: { in: 5..10 }
-  validates :email, presence: true, uniquencess: true
+  validates :email, presence: true, uniqueness: true
   has_secure_password
 
   before_save do
