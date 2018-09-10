@@ -60,7 +60,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-
+  get '/logout' do
+    if logged_in?
+      session.delete("user_id")
+    end
+    redirect '/login'
+  end
 
   helpers do
     def logged_in?
