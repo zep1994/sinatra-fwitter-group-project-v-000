@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   has_secure_password
 
   before_save do
-    self.slug = self.username.gsub(/[^a-zA-Z0-9]+/, "-")
+    self.slug = self.username.gsub(/[^a-zA-Z0-9]+/, "-").downcase
   end
 end
